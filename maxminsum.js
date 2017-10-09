@@ -1,16 +1,29 @@
 function maxminsum (argArr) {
-  var arr = argArr, // for function not to affect the real array
-      sum = 0;
-  for (var i = 0; i < arr.length; i++) {
-    if (Number.isInteger(arr[i]) || arr[i].toString().indexOf('.') != -1) { // if number is either integer or float
-      sum += arr[i]; // increase sum
-    }
-    else arr.splice(i,1); // otherwise, remove element from array
+  var arr = argArr; // for function not to affect the real array
+
+  // filter all 'bad' values
+  for (var i in arr) {
+    if (typeof arr[i] === 'undefined')
+      arr[i] = NaN;
+    if (!(Number.isInteger(arr[i]) || arr[i].toString().indexOf('.') != -1)) // if number is neither integer nor float
+      alert(arr.splice(i,1));
   }
-  console.log(arr);
+
+  var sum = 0,
+      max = arr[0],
+      min = arr[0];
+
+  for (var i in arr) {
+    sum += arr[i]; // increase sum
+
+    // find the greatest number
+    if (arr[i] > max)
+      max = arr[i];
   
-  var max = Math.max.apply(Math,arr),
-      min = Math.min.apply(Math,arr);
+    // filter the least number
+    if (arr[i] < min)
+      min = arr[i];
+  }
 
   return {
     max,
