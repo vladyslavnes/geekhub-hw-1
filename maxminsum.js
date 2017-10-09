@@ -3,9 +3,9 @@ function maxminsum (argArr) {
 
   // filter all 'bad' values
   for (var i in arr) {
-    if (typeof arr[i] === 'undefined')
+    if (typeof arr[i] === 'undefined' || typeof arr[i] === 'string')
       arr[i] = NaN;
-    if (!(Number.isInteger(arr[i]) || Number.isInteger(Math.round(arr[i]))) // if number is neither integer nor float
+    if (!(Number.isInteger(arr[i]) || Number.isInteger(Math.round(arr[i])))) // if number is neither integer nor float
       alert(arr.splice(i,1));
   }
 
@@ -34,7 +34,7 @@ function maxminsum (argArr) {
 
 // test
 
-var test = [undefined,-2,-1];
+var test = [undefined,-2,'1.2a',-1];
 console.log(`
 Max number: ${maxminsum(test).max}
 Min Number: ${maxminsum(test).min}
