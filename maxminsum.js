@@ -5,7 +5,7 @@ function maxminsum (argArr) {
   for (var i in arr) {
     if (typeof arr[i] === 'undefined')
       arr[i] = NaN;
-    if (!(Number.isInteger(arr[i]) || arr[i].toString().indexOf('.') != -1)) // if number is neither integer nor float
+    if (!(Number.isInteger(arr[i]) || Number.isInteger(Math.round(arr[i]))) // if number is neither integer nor float
       alert(arr.splice(i,1));
   }
 
