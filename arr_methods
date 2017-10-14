@@ -1,0 +1,20 @@
+var input = [-3,-1,0,3,2,1,-10,10];
+
+// var maxminsum = (argArr) => {
+  var arr = argArr;
+  var sum = arr.reduce((a,b) => a+b);
+
+  var min = maxminarr[0];
+  var max = maxminarr[maxminarr.length-1];
+  
+  var maxIndex = arr.findIndex((a) => a == max);
+  var minIndex = arr.findIndex((a) => a == min);
+  
+  var temp = arr[maxIndex];
+  arr[maxIndex] = arr[minIndex];
+  arr[minIndex] = temp; 
+
+  return arr;
+// };
+
+maxminsum(input);
